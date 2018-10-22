@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fk9-Wq-koB">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Trending Gifs-->
+        <scene sceneID="dSI-nx-YNI">
+            <objects>
+                <viewController id="O4W-kf-dAO" customClass="TrendingGifViewController" customModule="GIF_Searcher" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qSb-Vk-bWR" customClass="GifView" customModule="GIF_Searcher" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search..." translatesAutoresizingMaskIntoConstraints="NO" id="4C3-MT-SkL">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vIC-Lt-eGh" id="7EY-fH-od9"/>
+                                </connections>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JuB-Oo-8eo">
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LoL-bc-9XM">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vIC-Lt-eGh" id="BGZ-ou-vhv"/>
+                                    <outlet property="delegate" destination="vIC-Lt-eGh" id="pjj-Hg-FYs"/>
+                                </connections>
+                            </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fUR-HV-3I3">
+                                <rect key="frame" x="177.5" y="642" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fUR-HV-3I3" firstAttribute="centerX" secondItem="qSb-Vk-bWR" secondAttribute="centerX" id="4Oc-QH-zQP"/>
+                            <constraint firstItem="mpg-FH-aW0" firstAttribute="bottom" secondItem="fUR-HV-3I3" secondAttribute="bottom" constant="5" id="KcS-w2-pPZ"/>
+                            <constraint firstItem="4C3-MT-SkL" firstAttribute="top" secondItem="mpg-FH-aW0" secondAttribute="top" id="PIG-HU-gd1"/>
+                            <constraint firstItem="JuB-Oo-8eo" firstAttribute="trailing" secondItem="mpg-FH-aW0" secondAttribute="trailing" id="fdB-1O-xQh"/>
+                            <constraint firstItem="4C3-MT-SkL" firstAttribute="leading" secondItem="mpg-FH-aW0" secondAttribute="leading" id="jUk-S5-ADe"/>
+                            <constraint firstItem="JuB-Oo-8eo" firstAttribute="top" secondItem="4C3-MT-SkL" secondAttribute="bottom" id="oxt-S3-zsl"/>
+                            <constraint firstItem="4C3-MT-SkL" firstAttribute="trailing" secondItem="mpg-FH-aW0" secondAttribute="trailing" id="ptS-aQ-Ns5"/>
+                            <constraint firstItem="JuB-Oo-8eo" firstAttribute="bottom" secondItem="mpg-FH-aW0" secondAttribute="bottom" id="qMb-qb-uGg"/>
+                            <constraint firstItem="JuB-Oo-8eo" firstAttribute="leading" secondItem="mpg-FH-aW0" secondAttribute="leading" id="zUG-5T-ZVR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mpg-FH-aW0"/>
+                        <connections>
+                            <outlet property="activityIndicator" destination="fUR-HV-3I3" id="C7U-jb-x0S"/>
+                            <outlet property="collectionView" destination="JuB-Oo-8eo" id="xGH-Dk-tsA"/>
+                            <outlet property="searchBar" destination="4C3-MT-SkL" id="rSG-fC-5SY"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Trending Gifs" id="XX3-Ge-th0"/>
+                    <connections>
+                        <outlet property="gifPresenter" destination="vIC-Lt-eGh" id="eqU-tc-5TQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BXa-F0-UId" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="vIC-Lt-eGh" customClass="GifPresenter" customModule="GIF_Searcher" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="1476" y="-54.422788605697157"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4Bb-wp-9Gg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fk9-Wq-koB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FwJ-lI-w0e">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="O4W-kf-dAO" kind="relationship" relationship="rootViewController" id="9oD-Vt-Ijn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="STw-vk-mBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="536.79999999999995" y="-54.422788605697157"/>
+        </scene>
+    </scenes>
+</document>

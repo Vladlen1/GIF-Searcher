@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search Gif View Controller-->
+        <scene sceneID="n44-bP-jJM">
+            <objects>
+                <viewController storyboardIdentifier="SearchGifViewController" id="SX2-gk-XBt" customClass="SearchGifViewController" customModule="GIF_Searcher" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uSJ-xc-QGQ" customClass="GifView" customModule="GIF_Searcher" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tuh-rV-NsF">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HMM-dm-35S">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="hFs-tJ-GKS" id="slx-vn-UyP"/>
+                                    <outlet property="delegate" destination="hFs-tJ-GKS" id="aM5-fN-svu"/>
+                                </connections>
+                            </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="haw-o1-Wvb">
+                                <rect key="frame" x="177.5" y="642" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="a11-lg-kUf" firstAttribute="bottom" secondItem="haw-o1-Wvb" secondAttribute="bottom" constant="5" id="5Ne-aX-G3J"/>
+                            <constraint firstItem="a11-lg-kUf" firstAttribute="trailing" secondItem="tuh-rV-NsF" secondAttribute="trailing" id="6rq-lF-aP9"/>
+                            <constraint firstItem="haw-o1-Wvb" firstAttribute="centerX" secondItem="uSJ-xc-QGQ" secondAttribute="centerX" id="D8c-9g-6kE"/>
+                            <constraint firstItem="a11-lg-kUf" firstAttribute="bottom" secondItem="tuh-rV-NsF" secondAttribute="bottom" id="Lrl-o6-DNb"/>
+                            <constraint firstItem="tuh-rV-NsF" firstAttribute="leading" secondItem="a11-lg-kUf" secondAttribute="leading" id="OLt-4I-7iw"/>
+                            <constraint firstItem="tuh-rV-NsF" firstAttribute="top" secondItem="a11-lg-kUf" secondAttribute="top" id="nm4-zR-D0Z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="a11-lg-kUf"/>
+                        <connections>
+                            <outlet property="activityIndicator" destination="haw-o1-Wvb" id="oxb-4l-KkK"/>
+                            <outlet property="collectionView" destination="tuh-rV-NsF" id="Avi-8p-IiD"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="gifPresenter" destination="hFs-tJ-GKS" id="Ocf-MZ-1j3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Y8-cx-Qda" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="hFs-tJ-GKS" customClass="GifPresenter" customModule="GIF_Searcher" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="360" y="-56"/>
+        </scene>
+    </scenes>
+</document>
